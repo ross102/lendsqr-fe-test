@@ -1,0 +1,103 @@
+$color-primary: #39cdcc;
+$color-primary-dark: #2db4b3;
+$color-text-dark: #213f7d;
+$color-text-muted: #545f7d;
+$color-white: #ffffff;
+
+$font-family: 'Work Sans', 'Avenir Next', sans-serif;
+
+.login {
+  display: flex;
+  min-height: 100vh;
+  font-family: $font-family;
+
+  @media (max-width: 968px) {
+    flex-direction: column;
+  }
+
+  &__left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 80px;
+    background-color: $color-white;
+
+    @media (max-width: 968px) {
+      display: none;
+    }
+  }
+
+  &__mobile-header {
+    display: none;
+    padding: 30px 24px;
+    background-color: $color-white;
+
+    @media (max-width: 968px) {
+      display: block;
+    }
+  }
+
+  &__right-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: $color-white;
+
+    @media (max-width: 968px) {
+      align-items: flex-start;
+      padding: 40px 24px;
+    }
+  }
+
+  &__illustration {
+    max-width: 100%;
+    width: 600px;
+    margin: auto 0;
+    object-fit: contain;
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 447px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 700;
+    color: $color-text-dark;
+    margin-bottom: 10px;
+
+    @media (max-width: 480px) {
+      font-size: 32px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    color: $color-text-muted;
+    margin-bottom: 60px;
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__forgot-password {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-primary-dark;
+    }
+  }
+}
