@@ -1,5 +1,8 @@
 import Logo from "@/assets/logo.svg";
 import styles from "./Sidebar.module.scss";
+import DownIcon from "@/assets/down-icon.svg"
+import BriefcaseIcon from "@/assets/briefcase 1.svg"
+import HomeIcon from "@/assets/home 1.svg"
 
 interface SidebarProps {
   isOpen: boolean;
@@ -66,17 +69,28 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => (
       className={`${styles.sidebar} ${isOpen ? styles["sidebar--open"] : ""}`}
     >
       <div className={styles.sidebar__logo}>
-        <Logo />
+        <img
+                      src={Logo}
+                      alt="logo "
+                      width={144}
+                      height={30}
+                    />
       </div>
 
       <button className={styles.sidebar__switch}>
-        <svg className={styles["sidebar__switch-icon"]} viewBox="0 0 24 24">
-          <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
-        </svg>
+                 <img
+                      src={BriefcaseIcon}
+                      alt="organisation icon "
+                      width={14}
+                      height={14}
+                    />
         Switch Organization
-        <svg className={styles["sidebar__switch-arrow"]} viewBox="0 0 24 24">
-          <path d="M7 10l5 5 5-5H7z" />
-        </svg>
+                  <img
+                      src={DownIcon}
+                      alt="down icon"
+                      width={14}
+                      height={14}
+                    />
       </button>
 
       {navSections.map((section, sIdx) => (
@@ -93,12 +107,12 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => (
                 item.active ? styles["sidebar__nav-item--active"] : ""
               }`}
             >
-              <svg
-                className={styles["sidebar__nav-item-icon"]}
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="12" r="3" />
-              </svg>
+             <img
+                      src={HomeIcon}
+                      alt="nav icons"
+                      width={14}
+                      height={14}
+                    />
               {item.label}
             </button>
           ))}

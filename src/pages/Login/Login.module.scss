@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     padding: 50px 80px;
-    background-color: #FBFBFB;
+    background-color: $color-gray;
 
     @include tablet {
       display: none;

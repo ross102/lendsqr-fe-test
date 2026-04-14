@@ -1,4 +1,9 @@
 import styles from "./Topbar.module.scss";
+import SearchIcon from "@/assets/searchIcon.svg";
+import NotificationIcon from "@/assets/np_notification_2425223_000000 1.svg";
+import AvaterIcon from "@/assets/avatar.svg"
+import FilterIcon from "@/assets/filtericon.svg"
+import DropdownIcon from "@/assets/np_dropdown_615120_000000 1.svg"
 
 interface TopbarProps {
   onMenuClick: () => void;
@@ -7,9 +12,12 @@ interface TopbarProps {
 const Topbar = ({ onMenuClick }: TopbarProps) => (
   <header className={styles.topbar}>
     <button className={styles.topbar__hamburger} onClick={onMenuClick}>
-      <svg className={styles["topbar__hamburger-icon"]} viewBox="0 0 24 24">
-        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
-      </svg>
+         <img
+                      src={FilterIcon}
+                      alt="hamburger icon "
+                      width={24}
+                      height={24}
+                    />
     </button>
 
     <div className={styles.topbar__search}>
@@ -19,9 +27,12 @@ const Topbar = ({ onMenuClick }: TopbarProps) => (
         type="text"
       />
       <button className={styles["topbar__search-btn"]}>
-        <svg className={styles["topbar__search-btn-icon"]} viewBox="0 0 24 24">
-          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 14C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-        </svg>
+                  <img
+                      src={SearchIcon}
+                      alt="search icon "
+                      width={14}
+                      height={14}
+                    />
       </button>
     </div>
 
@@ -29,17 +40,23 @@ const Topbar = ({ onMenuClick }: TopbarProps) => (
       <button className={styles.topbar__docs}>Docs</button>
 
       <button className={styles.topbar__bell}>
-        <svg className={styles["topbar__bell-icon"]} viewBox="0 0 24 24">
-          <path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
-        </svg>
+                  <img
+                      src={NotificationIcon}
+                      alt="notification icon "
+                      width={26}
+                      height={26}
+                    />
       </button>
 
       <button className={styles.topbar__user}>
         <div className={styles.topbar__avatar}>A</div>
         <span className={styles.topbar__username}>Adedeji</span>
-        <svg className={styles["topbar__dropdown-arrow"]} viewBox="0 0 24 24">
-          <path d="M7 10l5 5 5-5H7z" />
-        </svg>
+                   <img
+                      src={DropdownIcon}
+                      alt="dropdown icon "
+                      width={26}
+                      height={26}
+                    />
       </button>
     </div>
   </header>

@@ -3,15 +3,14 @@ import styles from "./StatCard.module.scss";
 
 interface StatCardProps {
   icon: ReactNode;
-  iconColor: "pink" | "purple" | "orange" | "red";
   label: string;
   value: string;
 }
 
-const StatCard = ({ icon, iconColor, label, value }: StatCardProps) => (
+const StatCard = ({ icon, label, value }: StatCardProps) => (
   <div className={styles["stat-card"]}>
     <div
-      className={`${styles["stat-card__icon"]} ${styles[`stat-card__icon--${iconColor}`]}`}
+      className={`${styles["stat-card__icon"]} `}
     >
       {icon}
     </div>

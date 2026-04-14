@@ -23,8 +23,8 @@ const Login = () => {
         <img
           src={Logo}
           alt="logo"
-          width={176}
-          height={36}
+          width={136}
+          height={30}
         />
       </div>
       <div className={styles["login__left-panel"]}>

@@ -1,4 +1,5 @@
 import styles from "./UsersTable.module.scss";
+import filterIcon from "@/assets/filtericon.svg"
 
 interface User {
   organization: string;
@@ -23,12 +24,6 @@ const users: User[] = [
 
 const columns = ["Organization", "Username", "Email", "Phone Number", "Date Joined", "Status"];
 
-const FilterIcon = () => (
-  <svg className={styles["users-table__filter-icon"]} viewBox="0 0 24 24">
-    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
-  </svg>
-);
-
 const UsersTable = () => (
   <div className={styles["users-table-wrapper"]}>
     <table className={styles["users-table"]}>
@@ -37,7 +32,12 @@ const UsersTable = () => (
           {columns.map((col) => (
             <th key={col}>
               <span>
-                {col} <FilterIcon />
+                {col}   <img
+                      src={filterIcon}
+                      alt="users with savings icon"
+                      width={16}
+                      height={16}
+                    />
               </span>
             </th>
           ))}
