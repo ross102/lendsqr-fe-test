@@ -1,5 +1,5 @@
 import styles from "./Login.module.scss";
-import loginIllustration from "@/assets/login-illustration.png";
+import loginIllustration from "@/assets/landing-illustration.svg";
 import { useLoginForm } from "@/hooks/useLoginForm";
 import Logo from "@/assets/logo.svg";
 import InputField from "@/components/InputField/InputField";
@@ -20,17 +20,28 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <div className={styles["login__mobile-header"]}>
-        <Logo />
+        <img
+          src={Logo}
+          alt="logo"
+          width={176}
+          height={36}
+        />
       </div>
 
       <div className={styles["login__left-panel"]}>
-        <Logo />
+
+        <img
+          src={Logo}
+          alt="logo"
+          width={176}
+          height={36}
+        />
         <img
           src={loginIllustration}
-          alt="Person stepping out of a phone with a briefcase, surrounded by colorful geometric shapes"
+          alt="login illustration"
           className={styles.login__illustration}
           width={600}
-          height={600}
+          height={337}
         />
       </div>
 
