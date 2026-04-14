@@ -1,0 +1,165 @@
+@use '../../styles/variables' as *;
+
+.users-table-wrapper {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-family: $font-family;
+}
+
+.users-table__head {
+  th {
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 16px 20px;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+  }
+}
+
+.users-table__filter-icon {
+  width: 12px;
+  height: 12px;
+  fill: $color-text-muted;
+}
+
+.users-table__body {
+  td {
+    font-size: 14px;
+    font-weight: 400;
+    color: $color-text-muted;
+    padding: 16px 20px;
+    border-bottom: 1px solid $color-border;
+    white-space: nowrap;
+  }
+}
+
+.users-table__status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 400;
+
+  &--active {
+    background: rgba(#39cd62, 0.1);
+    color: #39cd62;
+  }
+
+  &--inactive {
+    background: rgba($color-text-muted, 0.1);
+    color: $color-text-muted;
+  }
+
+  &--pending {
+    background: rgba(#e9b200, 0.1);
+    color: #e9b200;
+  }
+
+  &--blacklisted {
+    background: rgba(#e4033b, 0.1);
+    color: #e4033b;
+  }
+}
+
+.users-table__actions {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: $color-text-muted;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.users-table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  font-family: $font-family;
+
+  @include large-phone {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.users-table__showing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+.users-table__showing-select {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  background: rgba($color-text-dark, 0.1);
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text-dark;
+  cursor: pointer;
+}
+
+.users-table__pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.users-table__page-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border: none;
+  background: none;
+  font-family: $font-family;
+  font-size: 14px;
+  color: $color-text-muted;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--active {
+    font-weight: 600;
+    color: $color-text-dark;
+  }
+
+  &--nav {
+    background: rgba($color-text-dark, 0.1);
+  }
+
+  &:hover {
+    background: rgba($color-primary, 0.1);
+  }
+}
+
+.users-table__page-ellipsis {
+  font-size: 14px;
+  color: $color-text-muted;
+  padding: 0 4px;
+}

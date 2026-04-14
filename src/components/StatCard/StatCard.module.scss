@@ -1,0 +1,69 @@
+@use '../../styles/variables' as *;
+
+.stat-card {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  @include small-phone {
+    padding: 16px 20px;
+    gap: 10px;
+  }
+}
+
+.stat-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--pink {
+    background: rgba(#df18ff, 0.1);
+  }
+
+  &--purple {
+    background: rgba(#5718ff, 0.1);
+  }
+
+  &--orange {
+    background: rgba(#f55f44, 0.1);
+  }
+
+  &--red {
+    background: rgba(#ff3366, 0.1);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.stat-card__label {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-muted;
+  text-transform: uppercase;
+
+  @include small-phone {
+    font-size: 12px;
+  }
+}
+
+.stat-card__value {
+  font-family: $font-family;
+  font-size: 24px;
+  font-weight: 600;
+  color: $color-text-dark;
+
+  @include small-phone {
+    font-size: 20px;
+  }
+}

@@ -27,7 +27,6 @@ const Login = () => {
           height={36}
         />
       </div>
-
       <div className={styles["login__left-panel"]}>
 
         <img
@@ -43,6 +42,7 @@ const Login = () => {
           width={600}
           height={337}
         />
+      
       </div>
 
       <div className={styles["login__right-panel"]}>

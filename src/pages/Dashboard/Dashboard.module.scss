@@ -1,0 +1,62 @@
+@use '../../styles/variables' as *;
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: $color-bg-muted;
+}
+
+.dashboard__main {
+  flex: 1;
+  margin-left: 283px;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    margin-left: 0;
+  }
+}
+
+.dashboard__content {
+  padding: 60px 30px 30px;
+  flex: 1;
+
+  @include large-phone {
+    padding: 30px 16px;
+  }
+
+  @include small-phone {
+    padding: 20px 12px;
+  }
+}
+
+.dashboard__title {
+  font-family: $font-family;
+  font-size: 24px;
+  font-weight: 500;
+  color: $color-text-dark;
+  margin-bottom: 40px;
+
+  @include small-phone {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-bottom: 40px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @include small-phone {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+}

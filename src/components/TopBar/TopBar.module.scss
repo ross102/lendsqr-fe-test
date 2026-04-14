@@ -1,0 +1,197 @@
+@use '../../styles/variables' as *;
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 30px;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  @include large-phone {
+    padding: 0 16px;
+    height: 60px;
+  }
+}
+
+.topbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-icon {
+    width: 24px;
+    height: 24px;
+    fill: $color-text-dark;
+  }
+}
+
+.topbar__search {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  flex: 1;
+
+  @include large-phone {
+    max-width: 200px;
+  }
+
+  @include small-phone {
+    max-width: 140px;
+  }
+}
+
+.topbar__search-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid $color-border;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  padding: 0 16px;
+  font-family: $font-family;
+  font-size: 14px;
+  color: $color-text-dark;
+  background: $color-white;
+  outline: none;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  @include small-phone {
+    height: 36px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+}
+
+.topbar__search-btn {
+  height: 40px;
+  width: 56px;
+  background: $color-primary;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include small-phone {
+    height: 36px;
+    width: 44px;
+  }
+
+  &-icon {
+    width: 16px;
+    height: 16px;
+    fill: $color-white;
+  }
+}
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include large-phone {
+    gap: 12px;
+  }
+}
+
+.topbar__docs {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-text-dark;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  @include large-phone {
+    display: none;
+  }
+}
+
+.topbar__bell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  &-icon {
+    width: 22px;
+    height: 22px;
+    fill: $color-text-dark;
+  }
+
+  @include small-phone {
+    display: none;
+  }
+}
+
+.topbar__user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  @include small-phone {
+    gap: 6px;
+  }
+}
+
+.topbar__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-family: $font-family;
+  font-weight: 600;
+  font-size: 16px;
+
+  @include small-phone {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+}
+
+.topbar__username {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-text-dark;
+
+  @include large-phone {
+    display: none;
+  }
+}
+
+.topbar__dropdown-arrow {
+  width: 12px;
+  height: 12px;
+  fill: $color-text-dark;
+
+  @include large-phone {
+    display: none;
+  }
+}
