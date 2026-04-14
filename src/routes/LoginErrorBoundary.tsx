@@ -1,7 +1,7 @@
 import React from "react"
 import { useRouteError } from "react-router-dom";
 
-const ErrorBoundary = () => {
+const LoginErrorBoundary = () => {
   const error = useRouteError() as any;
 
   return (
@@ -12,4 +12,4 @@ const ErrorBoundary = () => {
   );
 };
 
-export default ErrorBoundary;
+export default LoginErrorBoundary;
