@@ -49,7 +49,14 @@ const Topbar = ({ onMenuClick }: TopbarProps) => (
       </button>
 
       <button className={styles.topbar__user}>
-        <div className={styles.topbar__avatar}>A</div>
+        <div className={styles.topbar__avatar}>
+            <img
+                      src={AvaterIcon}
+                      alt="avater icon "
+                      width={40}
+                      height={40}
+                    />
+        </div>
         <span className={styles.topbar__username}>Adedeji</span>
                    <img
                       src={DropdownIcon}
