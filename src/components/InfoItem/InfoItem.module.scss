@@ -1,0 +1,42 @@
+@use '../../styles/variables' as *;
+
+.user-details__info-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px 30px;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include large-phone {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include small-phone {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.user-details__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-details__info-label {
+  font-family: $font-family;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.user-details__info-value {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-dark;
+}

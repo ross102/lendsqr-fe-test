@@ -1,0 +1,404 @@
+@use '../../styles/variables' as *;
+
+.user-details {
+  display: flex;
+  min-height: 100vh;
+  background: $color-gray;
+}
+
+.user-details__main {
+  flex: 1;
+  margin-left: 283px;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    margin-left: 0;
+  }
+}
+
+.user-details__content {
+  padding: 60px 30px 30px;
+  flex: 1;
+
+  @include large-phone {
+    padding: 30px 16px;
+  }
+
+  @include small-phone {
+    padding: 20px 12px;
+  }
+}
+
+// Back link
+.user-details__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-family;
+  font-size: 16px;
+  color: $color-text-muted;
+  text-decoration: none;
+  margin-bottom: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+
+  &:hover {
+    color: $color-text-dark;
+  }
+
+  &-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+}
+
+// Header row
+.user-details__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.user-details__heading {
+  font-family: $font-family;
+  font-size: 24px;
+  font-weight: 500;
+  color: $color-text-dark;
+
+  @include small-phone {
+    font-size: 20px;
+  }
+}
+
+.user-details__actions {
+  display: flex;
+  gap: 16px;
+
+  @include small-phone {
+    gap: 10px;
+    width: 100%;
+  }
+}
+
+.user-details__action-btn {
+  padding: 10px 20px;
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  transition: background 0.2s, color 0.2s;
+
+  @include small-phone {
+    padding: 8px 14px;
+    font-size: 12px;
+    flex: 1;
+  }
+
+  &--blacklist {
+    color: #e4033b;
+    border: 1px solid #e4033b;
+
+    &:hover {
+      background: #e4033b;
+      color: $color-white;
+    }
+  }
+
+  &--activate {
+    color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+// Profile card
+.user-details__profile-card {
+  background: $color-white;
+  border-radius: 4px;
+  border: 1px solid $color-border;
+  padding: 30px;
+  margin-bottom: 30px;
+
+  @include small-phone {
+    padding: 20px 16px;
+  }
+}
+
+.user-details__profile-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid $color-border;
+  flex-wrap: wrap;
+
+  @include small-phone {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.user-details__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba($color-text-dark, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  @include small-phone {
+    width: 80px;
+    height: 80px;
+  }
+
+  &-icon {
+    width: 50px;
+    height: 50px;
+    fill: $color-text-dark;
+    opacity: 0.4;
+
+    @include small-phone {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.user-details__profile-name {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-details__name {
+  font-family: $font-family;
+  font-size: 22px;
+  font-weight: 500;
+  color: $color-text-dark;
+
+  @include small-phone {
+    font-size: 18px;
+  }
+}
+
+.user-details__id {
+  font-family: $font-family;
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+.user-details__divider {
+  width: 1px;
+  height: 60px;
+  background: $color-border;
+  margin: 0 10px;
+
+  @include small-phone {
+    display: none;
+  }
+}
+
+.user-details__tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  &-label {
+    font-family: $font-family;
+    font-size: 14px;
+    color: $color-text-muted;
+  }
+
+  &-stars {
+    display: flex;
+    gap: 4px;
+  }
+
+  &-star {
+    width: 16px;
+    height: 16px;
+
+    &--filled {
+      fill: #e9b200;
+    }
+
+    &--empty {
+      fill: none;
+      stroke: #e9b200;
+      stroke-width: 1.5;
+    }
+  }
+}
+
+.user-details__balance-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-details__balance {
+  font-family: $font-family;
+  font-size: 22px;
+  font-weight: 600;
+  color: $color-text-dark;
+
+  @include small-phone {
+    font-size: 18px;
+  }
+}
+
+.user-details__bank {
+  font-family: $font-family;
+  font-size: 12px;
+  color: $color-primary;
+}
+
+// Tabs
+.user-details__tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.user-details__tab {
+  font-family: $font-family;
+  font-size: 14px;
+  color: $color-text-muted;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+
+  @include small-phone {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  &--active {
+    color: $color-primary;
+    border-bottom-color: $color-primary;
+  }
+}
+
+// Info sections
+.user-details__info-card {
+  background: $color-white;
+  border-radius: 4px;
+  border: 1px solid $color-border;
+  padding: 30px;
+
+  @include small-phone {
+    padding: 20px 16px;
+  }
+}
+
+.user-details__section {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.user-details__section-title {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-text-dark;
+  margin-bottom: 20px;
+}
+
+.user-details__info-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px 30px;
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include large-phone {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include small-phone {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.user-details__info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-details__info-label {
+  font-family: $font-family;
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.user-details__info-value {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-text-dark;
+}
+
+// Guarantor grid
+.user-details__guarantor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 30px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include small-phone {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.user-details__guarantor-divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: $color-border;
+  margin: 8px 0;
+}

@@ -3,6 +3,11 @@ import styles from "./Sidebar.module.scss";
 import DownIcon from "@/assets/down-icon.svg"
 import BriefcaseIcon from "@/assets/briefcase 1.svg"
 import HomeIcon from "@/assets/home 1.svg"
+import UserIcon from "@/assets/user-friends 1.svg"
+import SackIcon from "@/assets/sack 1.svg"
+import handShakeIcon from "@/assets/handshake-regular 1.svg"
+import piggbankIcon from "@/assets/piggy-bank 1.svg"
+import MoneyBank from "@/assets/Group 104.svg"
 
 interface SidebarProps {
   isOpen: boolean;
@@ -12,50 +17,52 @@ interface SidebarProps {
 interface NavItem {
   label: string;
   active?: boolean;
+   icon: string;
 }
 
 interface NavSection {
   title?: string;
   items: NavItem[];
+ 
 }
 
 const navSections: NavSection[] = [
   {
-    items: [{ label: "Dashboard" }],
+    items: [{ label: "Dashboard", icon: HomeIcon }],
   },
   {
     title: "CUSTOMERS",
     items: [
-      { label: "Users", active: true },
-      { label: "Guarantors" },
-      { label: "Loans" },
-      { label: "Decision Models" },
-      { label: "Savings" },
-      { label: "Loan Requests" },
-      { label: "Whitelist" },
-      { label: "Karma" },
+      { label: "Users", active: true, icon: UserIcon },
+      { label: "Guarantors" , icon: UserIcon},
+      { label: "Loans", icon: SackIcon },
+      { label: "Decision Models", icon: handShakeIcon },
+      { label: "Savings" , icon: piggbankIcon},
+      { label: "Loan Requests",  icon: MoneyBank },
+      { label: "Whitelist" , icon: UserIcon},
+      { label: "Karma" , icon: UserIcon},
     ],
   },
   {
     title: "BUSINESSES",
     items: [
-      { label: "Organization" },
-      { label: "Loan Products" },
-      { label: "Savings Products" },
-      { label: "Fees and Charges" },
-      { label: "Transactions" },
-      { label: "Services" },
-      { label: "Service Account" },
-      { label: "Settlements" },
-      { label: "Reports" },
+      { label: "Organization" , icon: HomeIcon},
+      { label: "Loan Products" , icon: SackIcon},
+      { label: "Savings Products" , icon: piggbankIcon},
+      { label: "Fees and Charges" , icon: piggbankIcon},
+      { label: "Transactions" , icon: piggbankIcon},
+      { label: "Services" , icon: SackIcon},
+      { label: "Service Account" , icon: SackIcon},
+      { label: "Settlements" , icon: SackIcon},
+      { label: "Reports" , icon: SackIcon},
     ],
   },
   {
     title: "SETTINGS",
     items: [
-      { label: "Preferences" },
-      { label: "Fees and Pricing" },
-      { label: "Audit Logs" },
+      { label: "Preferences" , icon: SackIcon},
+      { label: "Fees and Pricing" , icon: piggbankIcon},
+      { label: "Audit Logs" , icon: SackIcon},
     ],
   },
 ];
@@ -108,7 +115,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => (
               }`}
             >
              <img
-                      src={HomeIcon}
+                      src={item.icon}
                       alt="nav icons"
                       width={14}
                       height={14}

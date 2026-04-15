@@ -163,3 +163,37 @@
   color: $color-text-muted;
   padding: 0 4px;
 }
+
+// Actions dropdown menu
+.actions-menu {
+  position: absolute;
+  right: 20px;
+  top: 100%;
+  z-index: 10;
+  min-width: 180px;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+}
+
+.actions-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  font-family: $font-family;
+  font-size: 14px;
+  color: $color-text-muted;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba($color-primary, 0.06);
+    color: $color-text-dark;
+  }
+}
