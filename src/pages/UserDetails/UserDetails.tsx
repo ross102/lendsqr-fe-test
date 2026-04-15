@@ -1,20 +1,36 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Topbar from "@/components/TopBar/TopBar";
+import { fetchUserById } from "@/api/Mockusers";
 import Star1Icon from "@/assets/star1.svg";
 import Star2Icon from "@/assets/star2.svg";
 import Star3Icon from "@/assets/star3.svg";
 import AvaterIcon from "@/assets/big-avatar.svg"
 import BackIcon from "@/assets/back-to-users.svg";
+import type { User }  from "@/api/Mockusers";
 import styles from "./UserDetails.module.scss";
 
 const tabs = ["General Details", "Documents", "Bank Details", "Loans", "Savings", "App and System"];
 
 const UserDetails = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("General Details");
+  const [user, setUser] = useState<User>();
+   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
+   useEffect(() => {
+       fetchUserById(id as string).then((data) => {
+        setUser(data);
+        setLoading(false);
+      });
+    }, []);
+
+    if (loading) {
+    return <div className={styles["users-table-wrapper"]} style={{ padding: "40px", textAlign: "center", color: "#545f7d" }}>Loading users...</div>;
+  }
 
   return (
     <div className={styles["user-details"]}>
@@ -54,8 +70,8 @@ const UserDetails = () => {
               </div>
 
               <div className={styles["user-details__profile-name"]}>
-                <span className={styles["user-details__name"]}>Grace Effiom</span>
-                <span className={styles["user-details__id"]}>LSQFf587g90</span>
+                <span className={styles["user-details__name"]}>{user?.username}</span>
+                <span className={styles["user-details__id"]}>{user?.phone}</span>
               </div>
 
               <div className={styles["user-details__divider"]} />
@@ -97,14 +113,14 @@ const UserDetails = () => {
             <div className={styles["user-details__section"]}>
               <h2 className={styles["user-details__section-title"]}>Personal Information</h2>
               <div className={styles["user-details__info-grid"]}>
-                <InfoItem label="Full Name" value="Grace Effiom" />
-                <InfoItem label="Phone Number" value="07060780922" />
-                <InfoItem label="Email Address" value="grace@gmail.com" />
-                <InfoItem label="BVN" value="07060780922" />
+                <InfoItem label="Full Name" value={user?.username as string} />
+                <InfoItem label="Phone Number" value={user?.phone as string} />
+                <InfoItem label="Email Address" value={user?.email as string} />
+                <InfoItem label="BVN" value={user?.phone as string} />
                 <InfoItem label="Gender" value="Female" />
                 <InfoItem label="Marital Status" value="Single" />
                 <InfoItem label="Children" value="None" />
-                <InfoItem label="Type of Residence" value="Parent's Apartment" />
+                <InfoItem label="Type of Residence" value={user?.organization as string} />
               </div>
             </div>
 

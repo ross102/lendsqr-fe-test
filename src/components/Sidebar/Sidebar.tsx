@@ -1,5 +1,6 @@
 import Logo from "@/assets/logo.svg";
 import styles from "./Sidebar.module.scss";
+import { useNavigate } from "react-router-dom";
 import DownIcon from "@/assets/down-icon.svg"
 import BriefcaseIcon from "@/assets/briefcase 1.svg"
 import HomeIcon from "@/assets/home 1.svg"
@@ -9,6 +10,7 @@ import handShakeIcon from "@/assets/handshake-regular 1.svg"
 import piggbankIcon from "@/assets/piggy-bank 1.svg"
 import MoneyBank from "@/assets/Group 104.svg"
 
+
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
@@ -17,7 +19,8 @@ interface SidebarProps {
 interface NavItem {
   label: string;
   active?: boolean;
-   icon: string;
+  icon: string;
+  link?: string;
 }
 
 interface NavSection {
@@ -28,12 +31,12 @@ interface NavSection {
 
 const navSections: NavSection[] = [
   {
-    items: [{ label: "Dashboard", icon: HomeIcon }],
+    items: [{ label: "Dashboard", icon: HomeIcon, link: "/dashboard" }],
   },
   {
     title: "CUSTOMERS",
     items: [
-      { label: "Users", active: true, icon: UserIcon },
+      { label: "Users", active: true, icon: UserIcon, link: "/dashboard" },
       { label: "Guarantors" , icon: UserIcon},
       { label: "Loans", icon: SackIcon },
       { label: "Decision Models", icon: handShakeIcon },
@@ -67,8 +70,9 @@ const navSections: NavSection[] = [
   },
 ];
 
-const Sidebar = ({ isOpen, onClose }: SidebarProps) => (
-  <>
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+ const navigate = useNavigate()
+  return  <>
     {isOpen && (
       <div className={styles.sidebar__overlay} onClick={onClose} />
     )}
@@ -108,12 +112,17 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => (
             </div>
           )}
           {section.items.map((item) => (
+           
             <button
+             onClick={() => {
+              navigate(`${item.link}`)
+             }}
               key={item.label}
               className={`${styles["sidebar__nav-item"]} ${
                 item.active ? styles["sidebar__nav-item--active"] : ""
               }`}
             >
+              
              <img
                       src={item.icon}
                       alt="nav icons"
@@ -121,12 +130,15 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => (
                       height={14}
                     />
               {item.label}
+                
             </button>
+          
           ))}
         </div>
       ))}
     </aside>
   </>
-);
+}
+
 
 export default Sidebar;

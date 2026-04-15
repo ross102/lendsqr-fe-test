@@ -1,54 +1,19 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import styles from "./UsersTable.module.scss";
 import filterIcon from "@/assets/filtericon.svg";
 import viewIcon from "@/assets/view-eye.svg";
 import blacklistIcon from "@/assets/delete-user.svg";
 import activateIcon from "@/assets/activate-user.svg";
+import { fetchUsers }  from "@/api/Mockusers";
+import type { User }  from "@/api/Mockusers";
 
-interface User {
-  organization: string;
-  username: string;
-  email: string;
-  phone: string;
-  dateJoined: string;
-  status: "Active" | "Inactive" | "Pending" | "Blacklisted";
-}
-
-const allUsers: User[]= [
-  { organization: "Lendsqr", username: "Adedeji", email: "adedeji@lendsqr.com", phone: "08078903721", dateJoined: "May 15, 2020 10:00 AM", status: "Inactive" },
-  { organization: "Irorun", username: "Debby Ogana", email: "debby2@irorun.com", phone: "08160780928", dateJoined: "Apr 30, 2020 10:00 AM", status: "Pending" },
-  { organization: "Lendstar", username: "Grace Effiom", email: "grace@lendstar.com", phone: "07060780922", dateJoined: "Apr 30, 2020 10:00 AM", status: "Blacklisted" },
-  { organization: "Lendsqr", username: "Tosin Dokunmu", email: "tosin@lendsqr.com", phone: "07003309226", dateJoined: "Apr 10, 2020 10:00 AM", status: "Pending" },
-  { organization: "Lendstar", username: "Grace Effiom", email: "grace@lendstar.com", phone: "07060780922", dateJoined: "Apr 30, 2020 10:00 AM", status: "Active" },
-  { organization: "Lendsqr", username: "Tosin Dokunmu", email: "tosin@lendsqr.com", phone: "08060780900", dateJoined: "Apr 10, 2020 10:00 AM", status: "Active" },
-  { organization: "Lendstar", username: "Grace Effiom", email: "grace@lendstar.com", phone: "07060780922", dateJoined: "Apr 30, 2020 10:00 AM", status: "Blacklisted" },
-  { organization: "Lendsqr", username: "Tosin Dokunmu", email: "tosin@lendsqr.com", phone: "08060780900", dateJoined: "Apr 10, 2020 10:00 AM", status: "Inactive" },
-  { organization: "Lendstar", username: "Grace Effiom", email: "grace@lendstar.com", phone: "07060780922", dateJoined: "Apr 30, 2020 10:00 AM", status: "Inactive" },
-   { organization: "Irorun", username: "Kemi Adeyemi", email: "kemi@irorun.com", phone: "08034567890", dateJoined: "Mar 20, 2020 10:00 AM", status: "Active" },
-  { organization: "Lendsqr", username: "Fola Akinyemi", email: "fola@lendsqr.com", phone: "09012345678", dateJoined: "Feb 14, 2020 10:00 AM", status: "Pending" },
-  { organization: "Lendstar", username: "Bola Ogunyemi", email: "bola@lendstar.com", phone: "07098765432", dateJoined: "Jan 5, 2020 10:00 AM", status: "Active" },
-  { organization: "Irorun", username: "Chidi Nwankwo", email: "chidi@irorun.com", phone: "08123456789", dateJoined: "Jun 12, 2020 10:00 AM", status: "Blacklisted" },
-  { organization: "Lendsqr", username: "Ayo Bakare", email: "ayo@lendsqr.com", phone: "07045678901", dateJoined: "Jul 22, 2020 10:00 AM", status: "Inactive" },
-  { organization: "Lendstar", username: "Ngozi Eze", email: "ngozi@lendstar.com", phone: "08056789012", dateJoined: "Aug 3, 2020 10:00 AM", status: "Active" },
-  { organization: "Irorun", username: "Tunde Fashola", email: "tunde@irorun.com", phone: "09087654321", dateJoined: "Sep 18, 2020 10:00 AM", status: "Pending" },
-  { organization: "Lendsqr", username: "Ada Obi", email: "ada@lendsqr.com", phone: "08167890123", dateJoined: "Oct 1, 2020 10:00 AM", status: "Active" },
-   { organization: "Lendstar", username: "Grace Effiom", email: "grace@lendstar.com", phone: "07060780922", dateJoined: "Apr 30, 2020 10:00 AM", status: "Inactive" },
-   { organization: "Irorun", username: "Kemi Adeyemi", email: "kemi@irorun.com", phone: "08034567890", dateJoined: "Mar 20, 2020 10:00 AM", status: "Active" },
-  { organization: "Lendsqr", username: "Fola Akinyemi", email: "fola@lendsqr.com", phone: "09012345678", dateJoined: "Feb 14, 2020 10:00 AM", status: "Pending" },
-  { organization: "Lendstar", username: "Bola Ogunyemi", email: "bola@lendstar.com", phone: "07098765432", dateJoined: "Jan 5, 2020 10:00 AM", status: "Active" },
-  { organization: "Irorun", username: "Chidi Nwankwo", email: "chidi@irorun.com", phone: "08123456789", dateJoined: "Jun 12, 2020 10:00 AM", status: "Blacklisted" },
-  { organization: "Lendsqr", username: "Ayo Bakare", email: "ayo@lendsqr.com", phone: "07045678901", dateJoined: "Jul 22, 2020 10:00 AM", status: "Inactive" },
-  { organization: "Lendstar", username: "Ngozi Eze", email: "ngozi@lendstar.com", phone: "08056789012", dateJoined: "Aug 3, 2020 10:00 AM", status: "Active" },
-  { organization: "Irorun", username: "Tunde Fashola", email: "tunde@irorun.com", phone: "09087654321", dateJoined: "Sep 18, 2020 10:00 AM", status: "Pending" },
-  { organization: "Lendsqr", username: "Ada Obi", email: "ada@lendsqr.com", phone: "08167890123", dateJoined: "Oct 1, 2020 10:00 AM", status: "Active" },
-  { organization: "Lendstar", username: "Emeka Uche", email: "emeka@lendstar.com", phone: "07078901234", dateJoined: "Nov 25, 2020 10:00 AM", status: "Blacklisted" },
-  { organization: "Lendstar", username: "Emeka Uche", email: "emeka@lendstar.com", phone: "07078901234", dateJoined: "Nov 25, 2020 10:00 AM", status: "Blacklisted" },
-];
 
 
 const ITEMS_PER_PAGE = 9;
 const columns = ["Organization", "Username", "Email", "Phone Number", "Date Joined", "Status"];
 
+// actions modal
 const ActionsMenu = ({
   onClose,
   onViewDetails,
@@ -89,8 +54,12 @@ const ActionsMenu = ({
 };
 
 const UsersTable = () => {
+
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [users, setUsers] = React.useState<User[]>(allUsers);
+  const [users, setUsers] = React.useState<User[]>([]);
+   const [loading, setLoading] = React.useState(true);
   const [activeMenu, setActiveMenu] = React.useState<number | null>(null);
 
   const totalPages = Math.ceil(users.length / ITEMS_PER_PAGE);
@@ -123,6 +92,17 @@ const UsersTable = () => {
     }
     return [...new Set(pages)];
   };
+
+   React.useEffect(() => {
+    fetchUsers().then((data) => {
+      setUsers(data);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return <div className={styles["users-table-wrapper"]} style={{ padding: "40px", textAlign: "center", color: "#545f7d" }}>Loading users...</div>;
+  }
 
   return (
     <div className={styles["users-table-wrapper"]}>
@@ -167,7 +147,7 @@ const UsersTable = () => {
                   <ActionsMenu
                     onClose={() => setActiveMenu(null)}
                     onViewDetails={() => {
-                      alert(`Viewing details for ${user.username}`);
+                       navigate(`/user-details/${user.id}`);
                       setActiveMenu(null);
                     }}
                     onBlacklist={() => handleBlacklist(idx)}
