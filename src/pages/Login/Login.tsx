@@ -1,5 +1,6 @@
 import styles from "./Login.module.scss";
 import loginIllustration from "@/assets/landing-illustration.svg";
+import { useNavigate } from "react-router-dom";
 import { useLoginForm } from "@/hooks/useLoginForm";
 import Logo from "@/assets/logo.svg";
 import InputField from "@/components/InputField/InputField";
@@ -7,6 +8,7 @@ import PasswordInput from "@/components/PasswordInput/PasswordInput";
 import Button from "@/components/Button/Button";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     email,
     setEmail,
@@ -75,7 +77,11 @@ const Login = () => {
             Forgot Password?
           </a>
 
-          <Button type="submit">Log In</Button>
+          <Button
+          onClick={() => {
+            navigate('/dashboard');
+          }}
+          type="submit">Log In</Button>
         </form>
       </div>
     </div>
