@@ -1,4 +1,4 @@
-import styles from "./Topbar.module.scss";
+import styles from "./TopBar.module.scss";
 import SearchIcon from "@/assets/searchIcon.svg";
 import NotificationIcon from "@/assets/np_notification_2425223_000000 1.svg";
 import AvaterIcon from "@/assets/avatar.svg"
