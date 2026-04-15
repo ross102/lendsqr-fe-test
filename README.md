@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **admin dashboard** built with **React (Vite)**, **TypeScript**, and **SCSS**.
+This project provides a clean and scalable interface for displaying **user information**, **analytics**, and other key metrics typically required in administrative systems.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* 📊 Interactive dashboard for user data and analytics
+* 👥 User management views
+* ⚡ Fast development setup powered by Vite
+* 🎯 Strong typing with TypeScript
+* 🎨 Modular and maintainable styling using SCSS
+* 📱 Responsive layout for different screen sizes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **React** – UI library
+* **Vite** – Fast build tool and dev server
+* **TypeScript** – Static typing
+* **SCSS** – Enhanced styling with variables and nesting
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📁 Project Structure (Simplified)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  components/   # Reusable UI components
+  pages/        # Page-level components (Dashboard, Users, etc.)
+  hooks/        # Custom React hooks
+  assets/       # Images, icons, etc.
+  styles/       # Global SCSS files
+  api/          # mock api
+  routes/       # Application routing
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd <your-project-folder>
 ```
+
+---
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+### 4. Open in browser
+
+Visit:
+
+```
+http://localhost:5173
+```
+
+
+
+---
+
+## 💡 Notes
+
+* Ensure you have **Node.js (v16 or higher)** installed
+* SCSS is configured and ready to use across the project
+* Path aliases (e.g. `@/`) may be configured for cleaner imports
+
+---
+
+## 📄 License
+
+This project is open-source and available for learning and demonstration purposes.
+
+---
+
+## 🙌 Acknowledgements
+
+Inspired by modern admin dashboards and best practices in frontend architecture.
