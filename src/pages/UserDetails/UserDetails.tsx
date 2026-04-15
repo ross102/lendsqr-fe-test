@@ -89,7 +89,7 @@ const UserDetails = () => {
 
               <div className={styles["user-details__balance-section"]}>
                 <span className={styles["user-details__balance"]}>₦200,000.00</span>
-                <span className={styles["user-details__bank"]}>9912345678/Providus Bank</span>
+                <span className={styles["user-details__bank"]}>{user?.organization}</span>
               </div>
             </div>
 

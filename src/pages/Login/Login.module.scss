@@ -1,6 +1,12 @@
 @use '@/styles/variables' as *;
 
 // ───── Block: login ─────
+html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .login {
   display: flex;
   min-height: 100vh;
