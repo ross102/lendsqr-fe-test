@@ -59,7 +59,15 @@ npm install
 
 ---
 
-### 3. Start the development server
+### 3. Run tests
+
+```bash
+npm run test
+```
+
+---
+
+### 4. Start the development server
 
 ```bash
 npm run dev
@@ -67,7 +75,7 @@ npm run dev
 
 ---
 
-### 4. Open in browser
+### 5. Open in browser
 
 Visit:
 
@@ -95,4 +103,4 @@ This project is open-source and available for learning and demonstration purpose
 
 ## 🙌 Acknowledgements
 
-Inspired by modern admin dashboards and best practices in frontend architecture.
+Inspired by lendsqr, modern admin dashboards and best practices in frontend architecture.
