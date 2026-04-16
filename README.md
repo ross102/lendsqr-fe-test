@@ -3,7 +3,6 @@
 A modern **admin dashboard** built with **React (Vite)**, **TypeScript**, and **SCSS**.
 This project provides a clean and scalable interface for displaying **user information**, **analytics**, and other key metrics typically required in administrative systems.
 
----
 
 ## 🚀 Features
 
@@ -14,7 +13,6 @@ This project provides a clean and scalable interface for displaying **user infor
 * 🎨 Modular and maintainable styling using SCSS
 * 📱 Responsive layout for different screen sizes
 
----
 
 ## 🛠 Tech Stack
 
@@ -23,7 +21,6 @@ This project provides a clean and scalable interface for displaying **user infor
 * **TypeScript** – Static typing
 * **SCSS** – Enhanced styling with variables and nesting
 
----
 
 ## 📁 Project Structure (Simplified)
 
@@ -38,7 +35,6 @@ src/
   routes/       # Application routing
 ```
 
----
 
 ## ⚙️ Getting Started
 
@@ -49,7 +45,6 @@ git clone <your-repo-url>
 cd <your-project-folder>
 ```
 
----
 
 ### 2. Install dependencies
 
@@ -57,7 +52,6 @@ cd <your-project-folder>
 npm install
 ```
 
----
 
 ### 3. Run tests
 
@@ -65,7 +59,6 @@ npm install
 npm run test
 ```
 
----
 
 ### 4. Start the development server
 
@@ -73,7 +66,6 @@ npm run test
 npm run dev
 ```
 
----
 
 ### 5. Open in browser
 
@@ -84,7 +76,6 @@ http://localhost:5173
 ```
 
 
-
 ---
 
 ## 💡 Notes
@@ -93,13 +84,12 @@ http://localhost:5173
 * SCSS is configured and ready to use across the project
 * Path aliases (e.g. `@/`) may be configured for cleaner imports
 
----
 
 ## 📄 License
 
 This project is open-source and available for learning and demonstration purposes.
 
----
+
 
 ## 🙌 Acknowledgements
 
