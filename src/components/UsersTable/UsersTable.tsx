@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import FilterDropdown from "./FilterDropdown";
 import styles from "./UsersTable.module.scss";
 import filterIcon from "@/assets/filtericon.svg";
 import viewIcon from "@/assets/view-eye.svg";
@@ -60,6 +61,7 @@ const UsersTable = () => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const [users, setUsers] = React.useState<User[]>([]);
    const [loading, setLoading] = React.useState(true);
+    const [activeFilter, setActiveFilter] = React.useState<boolean>(false);
   const [activeMenu, setActiveMenu] = React.useState<number | null>(null);
 
   const totalPages = Math.ceil(users.length / ITEMS_PER_PAGE);
@@ -110,10 +112,16 @@ const UsersTable = () => {
         <thead className={styles["users-table__head"]}>
           <tr>
             {columns.map((col) => (
-              <th key={col}>
-                <span>
+              <th key={col} style={{ position: "relative" }}>
+                 <span onClick={() => setActiveFilter(!activeFilter)}>
                   {col} <img src={filterIcon} width={16} height={16} alt="filter icon" />
                 </span>
+                 {activeFilter && col === "Organization" && (
+                  <FilterDropdown
+                   
+                    onClose={() => setActiveFilter(false)}
+                  />
+                 )}
               </th>
             ))}
             <th />

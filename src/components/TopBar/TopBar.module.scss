@@ -60,6 +60,7 @@
 
   @include small-phone {
     max-width: 140px;
+    display: hidden;
   }
 }
 
