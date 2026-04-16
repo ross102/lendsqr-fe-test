@@ -1,6 +1,7 @@
-import Logo from "@/assets/logo.svg";
+
 import styles from "./Sidebar.module.scss";
 import { useNavigate } from "react-router-dom";
+
 import DownIcon from "@/assets/down-icon.svg"
 import BriefcaseIcon from "@/assets/briefcase 1.svg"
 import HomeIcon from "@/assets/home 1.svg"
@@ -79,14 +80,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     <aside
       className={`${styles.sidebar} ${isOpen ? styles["sidebar--open"] : ""}`}
     >
-      <div className={styles.sidebar__logo}>
-        <img
-                      src={Logo}
-                      alt="logo "
-                      width={144}
-                      height={30}
-                    />
-      </div>
+     
 
       <button className={styles.sidebar__switch}>
                  <img

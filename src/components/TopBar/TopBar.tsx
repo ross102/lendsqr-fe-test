@@ -3,6 +3,7 @@ import SearchIcon from "@/assets/searchIcon.svg";
 import NotificationIcon from "@/assets/np_notification_2425223_000000 1.svg";
 import AvaterIcon from "@/assets/avatar.svg"
 import FilterIcon from "@/assets/filtericon.svg"
+import Logo from "@/assets/logo.svg";
 import DropdownIcon from "@/assets/np_dropdown_615120_000000 1.svg"
 
 interface TopbarProps {
@@ -11,6 +12,13 @@ interface TopbarProps {
 
 const Topbar = ({ onMenuClick }: TopbarProps) => (
   <header className={styles.topbar}>
+     <div className={styles.topbar__left}>
+        <img
+                      src={Logo}
+                      alt="logo "
+                      width={144}
+                      height={30}
+                    />
     <button className={styles.topbar__hamburger} onClick={onMenuClick}>
          <img
                       src={FilterIcon}
@@ -19,6 +27,7 @@ const Topbar = ({ onMenuClick }: TopbarProps) => (
                       height={24}
                     />
     </button>
+   </div>
 
     <div className={styles.topbar__search}>
       <input

@@ -3,6 +3,7 @@
 .user-details {
   display: flex;
   min-height: 100vh;
+  padding-top: 60px;
   background: $color-gray;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .user-details__content {
-  padding: 60px 30px 30px;
+  padding: 60px 50px 30px;
   flex: 1;
 
   @include large-phone {

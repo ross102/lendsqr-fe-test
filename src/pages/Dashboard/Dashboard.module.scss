@@ -1,25 +1,23 @@
 @use '../../styles/variables' as *;
 
 .dashboard {
-  display: flex;
   min-height: 100vh;
-  background: $color-gray;
+  background: $color-bg-muted;
 }
 
 .dashboard__main {
-  flex: 1;
-  margin-left: 283px;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  padding-left: 283px;
+  padding-top: 70px;
 
   @include tablet {
-    margin-left: 0;
+    padding-left: 0;
   }
 }
 
 .dashboard__content {
-  padding: 60px 30px 30px;
+  padding: 30px 30px 30px;
   flex: 1;
 
   @include large-phone {
@@ -46,13 +44,12 @@
 
 .dashboard__stats {
   display: grid;
-  padding: 10px;
   grid-template-columns: repeat(4, 1fr);
   gap: 26px;
   margin-bottom: 40px;
 
   @include tablet {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
 

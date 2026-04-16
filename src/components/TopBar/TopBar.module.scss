@@ -1,5 +1,6 @@
 @use '../../styles/variables' as *;
 
+
 .topbar {
   display: flex;
   align-items: center;
@@ -8,14 +9,23 @@
   padding: 0 30px;
   background: $color-white;
   border-bottom: 1px solid $color-border;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  z-index: 101;
+
 
   @include large-phone {
     padding: 0 16px;
     height: 60px;
   }
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .topbar__hamburger {
