@@ -78,6 +78,7 @@ const Login = () => {
           </a>
 
           <Button
+          data-testid="login-button"
           onClick={() => {
             navigate('/dashboard');
           }}

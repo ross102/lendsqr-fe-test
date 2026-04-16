@@ -1,12 +1,28 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import '@testing-library/jest-dom';
+import { MemoryRouter} from "react-router-dom";
 import Login from "./Login";
+
+
+const mockNavigate = vi.fn();
+
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return { ...actual, useNavigate: () => mockNavigate };
+});
+
+const renderLogin = () => {
+  return render(
+    <MemoryRouter>
+      <Login />
+    </MemoryRouter>
+  );
+};
 
 describe("Login", () => {
   it("renders the login form with all elements", () => {
-    render(<Login />);
+    renderLogin();
 
     expect(screen.getByRole("heading", { name: /welcome/i })).toBeInTheDocument()
     expect(screen.getByText("Enter details to login.")).toBeInTheDocument();
@@ -19,7 +35,7 @@ describe("Login", () => {
 
   it("toggles password visibility", async () => {
     const user = userEvent.setup();
-    render(<Login />);
+     renderLogin();
 
     const passwordInput = screen.getByLabelText("Password");
     const toggleBtn = screen.getByRole("button", { name: /show password/i });
@@ -37,7 +53,7 @@ describe("Login", () => {
 
   it("allows typing in email and password fields", async () => {
     const user = userEvent.setup();
-    render(<Login />);
+     renderLogin();
 
     const emailInput = screen.getByLabelText("Email");
     const passwordInput = screen.getByLabelText("Password");
@@ -51,19 +67,30 @@ describe("Login", () => {
 
   it("submits the form without page reload", async () => {
     const user = userEvent.setup();
-    render(<Login />);
+     renderLogin();
 
     await user.type(screen.getByLabelText("Email"), "test@example.com");
     await user.type(screen.getByLabelText("Password"), "secret123");
     await user.click(screen.getByRole("button", { name: /log in/i }));
 
-    // Form should still be visible (no navigation since we prevent default)
     expect(screen.getByRole("heading", { name: /welcome/i })).toBeInTheDocument();
   });
 
   it("has correct forgot password link", () => {
-    render(<Login />);
+    renderLogin();
     const link = screen.getByRole("link", { name: /forgot password/i });
     expect(link).toHaveAttribute("href", "/forgot-password");
   });
+
+  it("navigates to dashboard when login button is clicked", async () => {
+     renderLogin();
+  const user = userEvent.setup();
+
+  const loginButton = await screen.findByTestId("login-button");
+
+  await user.click(loginButton);
+
+  expect(mockNavigate).toHaveBeenCalledWith("/dashboard");
+
+});
 });

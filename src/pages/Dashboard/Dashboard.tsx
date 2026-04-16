@@ -16,7 +16,7 @@ const Dashboard = () => {
     <div className={styles.dashboard}>
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className={styles.dashboard__main}>
+      <div data-testid="dashboard__main" className={styles.dashboard__main}>
         <Topbar onMenuClick={() => setSidebarOpen((prev) => !prev)} />
 
         <div className={styles.dashboard__content}>

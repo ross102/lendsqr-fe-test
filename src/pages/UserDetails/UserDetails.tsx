@@ -36,7 +36,7 @@ const UserDetails = () => {
     <div className={styles["user-details"]}>
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className={styles["user-details__main"]}>
+      <div data-testid="user-details-main" className={styles["user-details__main"]}>
         <Topbar onMenuClick={() => setSidebarOpen((prev) => !prev)} />
 
         <div className={styles["user-details__content"]}>
@@ -76,7 +76,7 @@ const UserDetails = () => {
 
               <div className={styles["user-details__divider"]} />
 
-              <div className={styles["user-details__tier"]}>
+              <div data-testid="user-details-tier" className={styles["user-details__tier"]}>
                 <span className={styles["user-details__tier-label"]}>User's Tier</span>
                 <div className={styles["user-details__tier-stars"]}>
                   <img src={Star1Icon} width={16} height={16} alt="star rating" />

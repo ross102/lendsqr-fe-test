@@ -19,7 +19,7 @@ const Topbar = ({ onMenuClick }: TopbarProps) => (
                       width={144}
                       height={30}
                     />
-    <button className={styles.topbar__hamburger} onClick={onMenuClick}>
+    <button className={styles.topbar__hamburger} onClick={onMenuClick} aria-label="Toggle menu">
          <img
                       src={FilterIcon}
                       alt="hamburger icon "
